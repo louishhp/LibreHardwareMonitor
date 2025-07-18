@@ -15,8 +15,8 @@ namespace KdtvnLibreHardwareMonitor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("KdtvnLibreHardwareMonitor is running...");
-
+            Console.WriteLine("KdtvnIT_LibreHardwareMonitor is running...");
+            Console.WriteLine("The software will automatically shut down when completed.");
             Computer computer = new Computer
             {
                 IsCpuEnabled = true,
@@ -35,7 +35,9 @@ namespace KdtvnLibreHardwareMonitor
             computer.Close();
 
             string directory = AppDomain.CurrentDomain.BaseDirectory; // Lấy thư mục hiện tại của file .exe
-            string filename = $"KdtvnLibreHardwareMonitorLog.txt";
+            //string filename = $"LibreHardwareLog.txt";
+            string machineName = Environment.MachineName; // Lấy tên máy tính
+            string filename = $"{machineName}_CpuLibreHardwareLog.txt"; // Sử dụng tên máy tính trong tên file
             string fullPath = Path.Combine(directory, filename);
 
             try
